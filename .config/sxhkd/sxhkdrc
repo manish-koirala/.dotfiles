@@ -1,0 +1,35 @@
+# Brightness Controls
+XF86MonBrightnessUp
+	light -A 7
+XF86MonBrightnessDown
+	light -U 7
+
+# Sound Controls
+XF86AudioRaiseVolume
+	wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1.0	
+XF86AudioLowerVolume
+	wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- -l 0.0
+XF86AudioMute
+	wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+# Music Controls
+XF86AudioPlay
+	mpc toggle
+shift + XF86AudioRaiseVolume
+	mpc volume +10
+shift + XF86AudioLowerVolume 
+	mpc volume -10
+
+# Screenshot
+Print
+	escrotum -s ~/Pics/Screenshots/$(date +"%d-%B-%Y__%H:%M:%S.jpg")
+
+# App Launch Controls
+alt + p
+	emacsclient -c
+alt + e
+	alacritty -e neomutt
+alt + m
+	alacritty -e ncmpcpp
+alt + f 
+	alacritty -e lf

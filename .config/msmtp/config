@@ -1,0 +1,11 @@
+account mail@manishkoirala.xyz
+host mail.manishkoirala.xyz
+port 465
+from mail@manishkoirala.xyz
+user mail@manishkoirala.xyz
+passwordeval "pass mail@manishkoirala.xyz"
+auth on
+tls on
+tls_trust_file	/etc/ssl/certs/ca-certificates.crt
+logfile /home/manish/.local/state/msmtp/msmtp.log
+tls_starttls off
