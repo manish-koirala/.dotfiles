@@ -87,6 +87,11 @@ static const char *volMuteToggle[] = {"sh", "-c", "wpctl set-mute @DEFAULT_AUDIO
 /* screenshot */
 static const char *screenShot[] = {"sh", "-c", "Pic=${HOME}/Pictures/Screenshots/$(date +%s).png;scrot -s $Pic;xclip -sel clip -t image/png -i $Pic;notify-send 'Copied image to clipboard'", NULL};
 
+/* music */
+static const char *toggleMusicPlayPause[] = {"sh", "-c", "mpc toggle", NULL};
+static const char *nextMusic[] = {"sh", "-c", "mpc next", NULL};
+static const char *prevMusic[] = {"sh", "-c", "mpc prev", NULL};
+
 /* keys */
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -136,6 +141,11 @@ static const Key keys[] = {
 
   /* Screenshot */
 	{ 0,             XK_Print,      spawn,           {.v = screenShot } },
+
+  /* Music Keys */
+	{ MODKEY|ShiftMask,            XK_m,      spawn,           {.v = toggleMusicPlayPause } },
+	{ MODKEY|ShiftMask,            XK_n,      spawn,           {.v = nextMusic } },
+	{ MODKEY|ShiftMask,            XK_b,      spawn,           {.v = prevMusic } },
 
 };
 

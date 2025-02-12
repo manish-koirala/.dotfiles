@@ -1,4 +1,4 @@
 ff () {
-  SEL="$(find $HOME/Documents/ -maxdepth 4 -type d | fzf)"
+  SEL=$(find $HOME -maxdepth 8 -type d | grep -vP "/\.\w+" | fzf)
   [ -d $SEL ] && cd $SEL 
 }

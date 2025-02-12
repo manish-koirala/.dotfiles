@@ -40,7 +40,8 @@ alias bctl='bluetoothctl'
 alias lenovo-batcon='lenovo-toggle-battery-conservation-mode'
 alias acer-batcon='acer-toggle-battery-conservation-mode'
 alias ll='ls -lah'
+alias mus='ncmpcpp'
 
 # Prompt Configuration
-PROMPT="%(?.%F{14}󰣇 .%F{9}⏺)%f %2~ %# "
+PROMPT="%(?.%F{14}󰣇 .%F{9}󰣇 )%f %2~ %# "
 source $ZSH/plugins/nice-prompt.zsh

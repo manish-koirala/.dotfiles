@@ -8,6 +8,10 @@ export PAGER=less
 # Xresources
 xrdb -merge -I$HOME/ .Xresources
 
+# Start mpd (music player daemon)
+# MPD daemon start (if no other user instance exists)
+[ ! -s ~/.config/mpd/pid ] && mpd &
+
 # picom
 picom -f &
 
