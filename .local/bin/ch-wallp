@@ -1,0 +1,5 @@
+#!/bin/sh
+# A simple shell script to select the current desktop background.
+WALLPAPER="$(find $HOME/Pictures/Wallpapers/ -type f | grep -P '\.png|\.jpg|\.jpeg' | sed 's/\/home\/manish\/Pictures\/Wallpapers\///g' | dmenu -p "Wallpaper:>" -c -g 1 -l 8)" 
+SELECTED=$HOME/Pictures/Wallpapers/"${WALLPAPER}"
+[[ -n $WALLPAPER && -f $SELECTED ]] && feh --bg-fill "${SELECTED}"

@@ -41,6 +41,7 @@ alias lenovo-batcon='lenovo-toggle-battery-conservation-mode'
 alias acer-batcon='acer-toggle-battery-conservation-mode'
 alias ll='ls -lah'
 alias mus='ncmpcpp'
+alias tm='tmux'
 
 # Prompt Configuration
 PROMPT="%(?.%F{14}󰣇 .%F{9}󰣇 )%f %2~ %# "

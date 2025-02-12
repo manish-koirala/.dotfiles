@@ -61,6 +61,7 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #define MODKEY Mod4Mask
+#define LAUNCHKEY Mod1Mask|ShiftMask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -91,6 +92,12 @@ static const char *screenShot[] = {"sh", "-c", "Pic=${HOME}/Pictures/Screenshots
 static const char *toggleMusicPlayPause[] = {"sh", "-c", "mpc toggle", NULL};
 static const char *nextMusic[] = {"sh", "-c", "mpc next", NULL};
 static const char *prevMusic[] = {"sh", "-c", "mpc prev", NULL};
+
+/* wallpaper */ 
+static const char *changeWallpaper[] = {"ch-wallp", NULL};
+
+/* launch browser */
+static const char *browser[] = {"firefox", NULL};
 
 /* keys */
 static const Key keys[] = {
@@ -146,6 +153,12 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,            XK_m,      spawn,           {.v = toggleMusicPlayPause } },
 	{ MODKEY|ShiftMask,            XK_n,      spawn,           {.v = nextMusic } },
 	{ MODKEY|ShiftMask,            XK_b,      spawn,           {.v = prevMusic } },
+
+  /* Change Wallpaper Key */
+	{ LAUNCHKEY,            XK_w,      spawn,           {.v = changeWallpaper } },
+
+  /* Open browser Key */
+	{ LAUNCHKEY,            XK_f,      spawn,           {.v = browser } },
 
 };
 
