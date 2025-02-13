@@ -13,9 +13,9 @@ project () {
   if [ $? -eq 0 ] ; then # If the project session already exists.
     tmux attach-session -t $SESSION_NAME
   else
-    SEL=$(find $HOME -maxdepth 8 -type d | grep -vP "/\.\w+" | fzf)
+    SEL=$(find $HOME/Documents/Code/ -maxdepth 5 -type d | grep -vP "/\.\w+|/__pycache__|/node_modules" | fzf)
 
-    if [ -d $SEL ] ; then
+    if [[ "${SEL}" != "" &&  -d $SEL ]] ; then
       cd $SEL # Change into the directory
       tmux new-session -d -s $SESSION_NAME # Start a detached session known as "project"
       # Rename the first window and start neovim, also run the pyvenv script if .venv folder is detected.
