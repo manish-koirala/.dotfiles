@@ -43,3 +43,4 @@ alias ll='ls --color=auto -lah'
 PROMPT="%(?.%F{14}󰣇 .%F{9}󰣇 )%f %2~ %# "
 source $ZSH/plugins/nice-prompt.zsh
 
+# Run this command on start.
