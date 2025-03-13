@@ -18,6 +18,7 @@ source $ZSH/functions/project.zsh
 source $ZSH/functions/pyvenv.zsh
 source $ZSH/functions/lfcd.zsh
 source $ZSH/functions/acer-wmi.zsh
+source $ZSH/functions/lenovo-batt.zsh
 
 # Custom Plugins
 source $ZSH/plugins/zsh-bat.plugin.zsh
@@ -37,7 +38,9 @@ alias vi='nvim'
 alias dotf='git --work-tree=$HOME --git-dir=$HOME/.dotfiles'
 alias bctl='bluetoothctl'
 alias acer-battery-conserve='acer-toggle-battery-conservation-mode'
+alias lenovo-battery-conserve='lenovo-toggle-battery-conservation-mode'
 alias ll='ls --color=auto -lah'
+alias neofetch='fastfetch'
 
 # Prompt Configuration
 PROMPT="%(?.%F{14}󰣇 .%F{9}󰣇 )%f %2~ %# "
