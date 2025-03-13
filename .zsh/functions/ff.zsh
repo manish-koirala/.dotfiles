@@ -10,7 +10,14 @@ ff () {
     "$HOME/.xinitrc"
     "$HOME/.Xresources"
     )
-  SEL="$(find ${SEL_DIRS[*]} -maxdepth 5 | grep -vP '/.venv|/__pycache__/node_modules' | fzf)"
+
+  # Gtab the selection
+  if [[ $# -eq 1 && -n $1 ]] ; then
+    SEL="$(find ${SEL_DIRS[*]} -maxdepth 5 -iname "*${1}*" | grep -vP '/.venv|/__pycache__/node_modules' | fzf)"
+  else
+    SEL="$(find ${SEL_DIRS[*]} -maxdepth 5 | grep -vP '/.venv|/__pycache__/node_modules' | fzf)"
+  fi
+
   if [[ $SEL != "" && -f $SEL ]] ; then
     nvim $SEL
   elif [[ $SEL != "" && -d $SEL ]]; then

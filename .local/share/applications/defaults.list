@@ -3,6 +3,7 @@ image/jpeg=sxiv.desktop
 image/jpg=sxiv.desktop
 image/png=sxiv.desktop
 video/x-matroska=mpv.desktop
+video/webm=mpv.desktop
 video/mp4=mpv.desktop
 music/mpeg=mpv.desktop
 text/plain=nvim.desktop
