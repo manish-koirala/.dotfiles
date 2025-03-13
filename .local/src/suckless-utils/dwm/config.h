@@ -84,7 +84,7 @@ static const char *volDown[] = {"sh", "-c", "wpctl set-volume @DEFAULT_AUDIO_SIN
 static const char *volMuteToggle[] = {"sh", "-c", "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle", NULL};
 
 /* screenshot */
-static const char *screenShot[] = {"sh", "-c", "Pic=${HOME}/Pictures/Screenshots/$(date +%s).png;scrot -s $Pic;xclip -sel clip -t image/png -i $Pic;notify-send 'Copied image to clipboard'", NULL};
+static const char *screenShot[] = {"sh", "-c", "Pic=${HOME}/Pictures/Screenshots/$(date +%s).png;scrot -f -s $Pic && xclip -sel clip -t image/png -i $Pic && notify-send 'Copied image to clipboard'", NULL};
 
 /* music */
 static const char *toggleMusicPlayPause[] = {"sh", "-c", "mpc toggle", NULL};
@@ -96,6 +96,9 @@ static const char *changeWallpaper[] = {"ch-wallp", NULL};
 
 /* launch browser */
 static const char *browser[] = {"firefox", NULL};
+
+/* launch file manager */
+static const char *fileManager[] = {"alacritty","-e","lf", NULL};
 
 /* keys */
 static const Key keys[] = {
@@ -153,10 +156,13 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,            XK_b,      spawn,           {.v = prevMusic } },
 
   /* Change Wallpaper Key */
-	{ LAUNCHKEY,            XK_w,      spawn,           {.v = changeWallpaper } },
+	{ LAUNCHKEY,            XK_b,      spawn,           {.v = changeWallpaper } },
 
   /* Open browser Key */
-	{ LAUNCHKEY,            XK_f,      spawn,           {.v = browser } },
+	{ LAUNCHKEY,            XK_w,      spawn,           {.v = browser } },
+
+  /* Open file manager Key */
+	{ LAUNCHKEY,            XK_f,      spawn,           {.v = fileManager } },
 
 };
 
