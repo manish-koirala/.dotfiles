@@ -1,0 +1,12 @@
+[Default Applications]
+image/jpeg=sxiv.desktop
+image/jpg=sxiv.desktop
+image/png=sxiv.desktop
+video/x-matroska=mpv.desktop
+video/webm=mpv.desktop
+video/mp4=mpv.desktop
+music/mpeg=mpv.desktop
+text/plain=nvim.desktop
+text/html=nvim.desktop
+text/md=nvim.desktop
+application/pdf=org.pwmt.zathura.desktop

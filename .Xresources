@@ -1,0 +1,8 @@
+! General X settings
+Xft.dpi: 120
+Xft.antialias: 1
+Xft.hinting: 1
+Xft.hintstyle: hintfull
+Xft.rgba: rgb
+Xft.autohint: 0
+Sxiv.font: "JetBrainsMonoNerdFont-12"

@@ -1,0 +1,4 @@
+#!/bin/sh
+PIC=${HOME}/Pictures/Screenshots/$(date +%s).png
+scrot -f -s $PIC && xclip -sel clip -t image/png -i $PIC && notify-send "Copied image to clipboard"
+

@@ -1,0 +1,23 @@
+# Brightness Keys
+XF86MonBrightnessUp
+    brightnessctl s 10%+
+XF86MonBrightnessDown
+    brightnessctl s 10%-
+
+# Volume Keys
+XF86AudioRaiseVolume
+    pamixer -i 5
+XF86AudioLowerVolume
+    pamixer -d 5
+XF86AudioMute
+    pamixer -t
+
+# Shortcut Keys
+## Screenshots
+Print
+    screengrab
+## Wallpaper Selector
+super + shift + b
+    ch-wallp
+super + shift + p
+    emacsclient -c
