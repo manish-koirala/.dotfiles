@@ -21,3 +21,6 @@ super + shift + b
     ch-wallp
 super + shift + p
     emacsclient -c
+## Mouseless Browser
+super + shift + w
+    qutebrowser

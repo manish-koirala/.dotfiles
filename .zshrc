@@ -9,6 +9,9 @@ bindkey -e
 # ZSH directory
 export ZSH="$HOME/.zsh"
 
+# Default Editor
+export EDITOR="vim"
+
 # Completions
 autoload -Uz compinit && compinit 
 
@@ -38,4 +41,5 @@ alias neofetch='fastfetch'
 # Prompt Configuration
 PROMPT="%(?.%F{14}󰣇 .%F{9}󰣇 )%f %2~ %# "
 source $ZSH/plugins/nice-prompt.zsh
+
 
