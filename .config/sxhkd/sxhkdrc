@@ -19,8 +19,9 @@ Print
 ## Wallpaper Selector
 super + shift + b
     ch-wallp
+## Project Launcher
 super + shift + p
-    emacsclient -c
+    emacsclient -c 
 ## Mouseless Browser
 super + shift + w
     qutebrowser

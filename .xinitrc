@@ -25,7 +25,7 @@ $HOME/.fehbg &
 slstatus &
 
 # Emacs Daemon
-emacs -nw --daemon &
+emacs -nw -daemon &
 
 # Keyboard Hotkey Daemon 
 sxhkd &

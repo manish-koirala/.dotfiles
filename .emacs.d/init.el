@@ -1,86 +1,60 @@
 ;; Emacs Startup Configuration File
 ;; Author: Manish Koirala
+;; Date: October 30
 
-;; Disable the startup message
-(setq inhibit-startup-message t)
+;; Sane Defaults
+(setq inhibit-startup-message t) ; Disable the tutorial screen during startup
+(setq make-backup-files nil) ; Disable creating backup files with # extension
+(setq auto-save-default nil) ; Disable creating backup files with ~ extension
+(menu-bar-mode -1) ; Disable the menu bar
+(tool-bar-mode -1) ; Disable the tool bar
+(scroll-bar-mode -1) ; Disable scroll bar
+(add-to-list 'default-frame-alist '(font . "JetBrainsMonoNerdFontMono-12")) ; Default font
+(add-hook 'prog-mode-hook 'display-line-numbers-mode) ; Display line numbers in programming modes.
 
-;; Disable some default modes.
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-
-;; Default face
-(add-to-list 'default-frame-alist '(font . "JetBrainsMonoNerdFontMono-12"))
-
-;; Set visible bell
-(setq visible-bell t)
-
-;; Disable backupfiles.
-(setq make-backup-files nil)
-
-;; Fill column
-(setq fill-column 80)
-
-;; Add melpa to the package archives.
+;; Add melpa to package archives.
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
-;; Default theme
-(unless (package-installed-p 'spacemacs-theme)
-  (package-install 'spacemacs-theme))
-(load-theme 'spacemacs-dark t)
+;; Install and load a default theme.
+(progn 
+  (unless (package-installed-p 'spacemacs-theme)
+    (package-install 'spacemacs-theme))
+  (unless (package-installed-p 'doom-themes)
+    (package-install 'doom-themes))
+  (load-theme 'doom-dark+ t)
+  )
 
-;; Set up treesitter for emacs.
-(setq treesit-language-source-alist
-      '((typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
-      (markdown "https://github.com/ikatyang/tree-sitter-markdown")
-      (json "https://github.com/tree-sitter/tree-sitter-json")
-      (css "https://github.com/tree-sitter/tree-sitter-css")
-      (html "https://github.com/tree-sitter/tree-sitter-html")
-      (bash "https://github.com/tree-sitter/tree-sitter-bash")
-      (python "https://github.com/tree-sitter/tree-sitter-python")))
+;; Web mode for web development.
+(use-package web-mode
+  :ensure t
+  :mode (("\\.js\\'" . web-mode)
+         ("\\.jsx\\'" . web-mode)
+         ("\\.ts\\'" . web-mode)
+         ("\\.tsx\\'" . web-mode)
+         ("\\.html\\'" . web-mode)
+         ("\\.css\\'" . web-mode)))
 
-(setq major-mode-remap-alist
- '((bash-mode . bash-ts-mode)
-   (js2-mode . js-ts-mode)
-   (typescript-mode . typescript-ts-mode)
-   (json-mode . json-ts-mode)
-   (css-mode . css-ts-mode)
-   (python-mode . python-ts-mode)))
-
-
-;; Useful packages
-(use-package "magit" ;; Git Integration
-  :ensure t)
-(use-package "yasnippet" ;; Snippets Support
+;; Some useful packages.
+(use-package yasnippet ; Snippets Plugin
   :ensure t
   :config
-  (yas-global-mode t))
-(use-package "corfu" ;; Completions Framework
+  (yas-global-mode 1))
+
+(use-package magit ; Git Integration
   :ensure t)
-(use-package "ido-vertical-mode" ;; Completions for Minibuffer
+
+(use-package org-bullets ; UTF-8 Bullets Decoration for Org-mode
   :ensure t
-  :config
-  (ido-mode 1)
-  (ido-vertical-mode 1))
-(use-package "dashboard" ;; Startup Screen
+  :hook org-mode)
+
+(use-package vertico ; Vertical mini-buffer completion
   :ensure t
-  :config
-  (dashboard-setup-startup-hook)
-  (setq dashboard-items '((recents   . 5)
-                        (bookmarks . 5)
-                        (projects  . 5)))
-  (setq dashboard-item-shortcuts '((recents   . "r")
-                                   (bookmarks . "m")
-                                   (projects  . "p"))))
-(use-package "typit" ;; Typing Practise Plugin
+  :init
+  (vertico-mode))
+
+(use-package markdown-mode ; Markdown mode
   :ensure t)
-
-(use-package "markdown-mode" ;; Ensure markdown mode is there.
-  :ensure t)
-
-
-
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -88,11 +62,18 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(corfu dashboard ido-vertical-mode magit markdown-mode
-	   spacemacs-theme typit yasnippet)))
+   '(doom-themes magit markdown-mode org-bullets spacemacs-theme vertico
+		 web-mode yasnippet zenburn-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+
+
+
+
+
+

@@ -10,7 +10,7 @@ bindkey -e
 export ZSH="$HOME/.zsh"
 
 # Default Editor
-export EDITOR="vim"
+export EDITOR="nvim"
 
 # Completions
 autoload -Uz compinit && compinit 
