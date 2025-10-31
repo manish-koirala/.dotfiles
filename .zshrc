@@ -17,7 +17,6 @@ autoload -Uz compinit && compinit
 
 # Custom Functions
 source $ZSH/functions/ff.zsh
-source $ZSH/functions/project.zsh
 source $ZSH/functions/pyvenv.zsh
 source $ZSH/functions/lfcd.zsh
 
